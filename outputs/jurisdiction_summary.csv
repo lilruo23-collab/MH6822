@@ -1,0 +1,4 @@
+jurisdiction,travel_rule_required,above_threshold_enhanced_data,block,review,approve_or_approve_with_data,false_positive_rate,false_negative_rate
+US,58,58,24,33,443,0.11,0.024
+SG,500,345,153,62,285,0.412,0.01
+GLOBAL_STRICT,500,345,153,62,285,0.412,0.01

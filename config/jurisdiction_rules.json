@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "tool_name": "NEXUS Travel Rule Control Tower",
+    "entity": "Coinbase Global, Inc.",
+    "domain": "FATF Travel Rule compliance and AML/KYC",
+    "version": "2026-05-task3-prototype",
+    "base_currency": "USD",
+    "sgd_to_usd_rate": 0.74,
+    "rule_owner": "Compliance Policy",
+    "technical_owner": "NEXUS Compliance Technologies"
+  },
+  "jurisdictions": {
+    "US": {
+      "display_name": "United States",
+      "primary_regulator": "FinCEN",
+      "threshold_currency": "USD",
+      "threshold_value": 3000,
+      "threshold_usd": 3000,
+      "below_threshold_action": "monitor",
+      "above_threshold_action": "travel_rule_required",
+      "minimum_fields_below_threshold": [],
+      "required_fields_above_threshold": [
+        "originator_name",
+        "originator_account",
+        "originator_address",
+        "originator_id",
+        "beneficiary_name",
+        "beneficiary_account"
+      ],
+      "unhosted_wallet_policy": {
+        "base_action": "allow_with_monitoring",
+        "manual_review_if_risk_score_gte": 75,
+        "block_if_sanctions_hit": true
+      },
+      "risk_review_threshold": 70,
+      "block_threshold": 92,
+      "record_retention_years": 5,
+      "design_choice": "Preserve transaction velocity unless a transaction crosses the US travel-rule threshold or shows independently high AML risk."
+    },
+    "SG": {
+      "display_name": "Singapore",
+      "primary_regulator": "Monetary Authority of Singapore",
+      "threshold_currency": "SGD",
+      "threshold_value": 1500,
+      "threshold_usd": 1110,
+      "below_threshold_action": "basic_travel_rule_data_required",
+      "above_threshold_action": "enhanced_travel_rule_required",
+      "minimum_fields_below_threshold": [
+        "originator_name",
+        "originator_account",
+        "beneficiary_name",
+        "beneficiary_account"
+      ],
+      "required_fields_above_threshold": [
+        "originator_name",
+        "originator_account",
+        "originator_address",
+        "originator_id",
+        "beneficiary_name",
+        "beneficiary_account"
+      ],
+      "unhosted_wallet_policy": {
+        "base_action": "enhanced_due_diligence",
+        "manual_review_if_risk_score_gte": 55,
+        "block_if_sanctions_hit": true
+      },
+      "risk_review_threshold": 58,
+      "block_threshold": 88,
+      "record_retention_years": 5,
+      "design_choice": "Apply MAS-stricter logic because the regulatory consequence of missing data is greater than the product cost of extra friction."
+    },
+    "GLOBAL_STRICT": {
+      "display_name": "Global strict mode",
+      "primary_regulator": "Internal policy",
+      "threshold_currency": "USD",
+      "threshold_value": 1110,
+      "threshold_usd": 1110,
+      "below_threshold_action": "basic_travel_rule_data_required",
+      "above_threshold_action": "enhanced_travel_rule_required",
+      "minimum_fields_below_threshold": [
+        "originator_name",
+        "originator_account",
+        "beneficiary_name",
+        "beneficiary_account"
+      ],
+      "required_fields_above_threshold": [
+        "originator_name",
+        "originator_account",
+        "originator_address",
+        "originator_id",
+        "beneficiary_name",
+        "beneficiary_account"
+      ],
+      "unhosted_wallet_policy": {
+        "base_action": "enhanced_due_diligence",
+        "manual_review_if_risk_score_gte": 55,
+        "block_if_sanctions_hit": true
+      },
+      "risk_review_threshold": 58,
+      "block_threshold": 88,
+      "record_retention_years": 5,
+      "design_choice": "Use the strictest applicable obligations when a transaction touches multiple jurisdictions."
+    }
+  }
+}

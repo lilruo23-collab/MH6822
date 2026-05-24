@@ -1,0 +1,11 @@
+{
+  "transactions": 500,
+  "us_travel_rule_required": 58,
+  "sg_travel_rule_required": 500,
+  "us_enhanced_data_required": 58,
+  "sg_enhanced_data_required": 345,
+  "different_us_vs_sg": 452,
+  "conflict_share": 0.904,
+  "sg_extra_travel_rule_cases": 442,
+  "sg_extra_enhanced_cases": 287
+}

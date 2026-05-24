@@ -1,0 +1,9 @@
+amount_distribution_shift,jurisdiction,travel_rule_required,above_threshold_enhanced_data,manual_review_or_block,different_from_other_jurisdiction
+0.8,US,40,40,51,469
+0.8,SG,500,283,202,469
+1.0,US,58,58,57,452
+1.0,SG,500,345,215,452
+1.25,US,128,128,83,388
+1.25,SG,500,376,218,388
+1.5,US,179,179,100,338
+1.5,SG,500,396,220,338
